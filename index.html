@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Demo Play School | Sample Website by CloudPixel AI</title>
+<meta name="description" content="Demo Play School - A joyful, safe and creative early learning environment. Sample website created by CloudPixel AI.">
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;600;800&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Nunito',sans-serif;background:#fff8f0;color:#333}
+:root{--yellow:#FFD93D;--orange:#FF6B35;--pink:#FF4E8E;--blue:#4ECDC4;--purple:#A855F7;--green:#22C55E}
+
+/* DEMO BANNER */
+.demo-banner{background:#1a1a2e;color:#FFD93D;text-align:center;padding:10px 20px;font-family:'Baloo 2',cursive;font-size:13px;font-weight:700;letter-spacing:1px}
+.demo-banner span{color:#fff}
+.demo-banner a{color:#FFD93D;text-decoration:none;font-weight:800}
+
+header{background:linear-gradient(135deg,#FFD93D 0%,#FF6B35 50%,#FF4E8E 100%);padding:0;overflow:hidden}
+.header-top{display:flex;justify-content:space-between;align-items:center;padding:16px 40px;flex-wrap:wrap;gap:12px}
+.logo-area{display:flex;align-items:center;gap:14px}
+.logo-circle{width:60px;height:60px;background:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'Baloo 2',cursive;font-weight:800;font-size:18px;color:#FF6B35;box-shadow:0 4px 12px rgba(0,0,0,0.15)}
+.school-name{font-family:'Baloo 2',cursive;font-weight:800;font-size:24px;color:#fff;text-shadow:2px 2px 4px rgba(0,0,0,0.2);line-height:1.1}
+.school-tagline{font-size:12px;color:rgba(255,255,255,0.9);font-weight:600}
+nav{display:flex;gap:6px;flex-wrap:wrap}
+nav a{background:rgba(255,255,255,0.25);color:#fff;text-decoration:none;padding:8px 16px;border-radius:25px;font-weight:700;font-size:13px;transition:all 0.2s;border:2px solid rgba(255,255,255,0.4)}
+nav a:hover{background:#fff;color:#FF6B35}
+
+.hero{background:linear-gradient(135deg,#FF6B35 0%,#FF4E8E 40%,#A855F7 100%);padding:60px 40px;text-align:center;position:relative;overflow:hidden}
+.hero-bubbles{position:absolute;top:0;left:0;right:0;bottom:0;pointer-events:none}
+.bubble{position:absolute;border-radius:50%;opacity:0.15;animation:float 6s ease-in-out infinite}
+.bubble:nth-child(1){width:80px;height:80px;background:#FFD93D;top:10%;left:5%;animation-delay:0s}
+.bubble:nth-child(2){width:120px;height:120px;background:#4ECDC4;top:20%;right:8%;animation-delay:1s}
+.bubble:nth-child(3){width:60px;height:60px;background:#fff;bottom:15%;left:15%;animation-delay:2s}
+.bubble:nth-child(4){width:100px;height:100px;background:#FFD93D;bottom:10%;right:20%;animation-delay:0.5s}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-20px)}}
+.hero h1{font-family:'Baloo 2',cursive;font-size:52px;font-weight:800;color:#fff;text-shadow:3px 3px 8px rgba(0,0,0,0.2);margin-bottom:16px;position:relative}
+.hero p{font-size:20px;color:rgba(255,255,255,0.95);font-weight:600;margin-bottom:32px;position:relative}
+.hero-btns{display:flex;gap:16px;justify-content:center;flex-wrap:wrap;position:relative}
+.btn-primary{background:#FFD93D;color:#FF6B35;padding:14px 32px;border-radius:30px;text-decoration:none;font-weight:800;font-size:16px;box-shadow:0 6px 20px rgba(0,0,0,0.2);transition:transform 0.2s;display:inline-block}
+.btn-primary:hover{transform:translateY(-3px)}
+.btn-secondary{background:rgba(255,255,255,0.2);color:#fff;border:3px solid #fff;padding:14px 32px;border-radius:30px;text-decoration:none;font-weight:800;font-size:16px;transition:all 0.2s;display:inline-block}
+.btn-secondary:hover{background:#fff;color:#FF6B35}
+
+.stats{background:#fff;padding:40px;display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:20px;box-shadow:0 4px 20px rgba(0,0,0,0.08)}
+.stat-card{text-align:center;padding:20px;border-radius:16px}
+.stat-card:nth-child(1){background:#FFF3CD}
+.stat-card:nth-child(2){background:#D1F2EB}
+.stat-card:nth-child(3){background:#E8D5FB}
+.stat-card:nth-child(4){background:#FADBD8}
+.stat-num{font-family:'Baloo 2',cursive;font-size:40px;font-weight:800;line-height:1}
+.stat-card:nth-child(1) .stat-num{color:#FF6B35}
+.stat-card:nth-child(2) .stat-num{color:#22C55E}
+.stat-card:nth-child(3) .stat-num{color:#A855F7}
+.stat-card:nth-child(4) .stat-num{color:#FF4E8E}
+.stat-label{font-size:14px;font-weight:700;color:#666;margin-top:6px}
+
+section{padding:60px 40px}
+.section-title{font-family:'Baloo 2',cursive;font-size:36px;font-weight:800;text-align:center;margin-bottom:8px}
+.section-sub{text-align:center;color:#777;font-size:16px;margin-bottom:40px}
+
+/* ABOUT */
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center;max-width:1000px;margin:0 auto}
+.about-img{border-radius:24px;overflow:hidden;height:300px}
+.about-img img{width:100%;height:100%;object-fit:cover}
+.about-features{display:grid;gap:16px}
+.feature-item{display:flex;align-items:center;gap:14px;background:#fff;padding:16px 20px;border-radius:14px;box-shadow:0 2px 12px rgba(0,0,0,0.06)}
+.feature-icon{width:44px;height:44px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:22px;flex-shrink:0}
+.feature-item:nth-child(1) .feature-icon{background:#FFF3CD}
+.feature-item:nth-child(2) .feature-icon{background:#D1F2EB}
+.feature-item:nth-child(3) .feature-icon{background:#E8D5FB}
+.feature-item:nth-child(4) .feature-icon{background:#FADBD8}
+.feature-text h4{font-weight:700;font-size:15px;color:#333}
+.feature-text p{font-size:13px;color:#888}
+
+/* PROGRAMS */
+.programs-bg{background:linear-gradient(135deg,#f0f8ff,#fff0f8)}
+.programs-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:20px;max-width:1000px;margin:0 auto}
+.program-card{background:#fff;border-radius:20px;padding:28px 20px;text-align:center;box-shadow:0 4px 16px rgba(0,0,0,0.08);transition:transform 0.2s}
+.program-card:hover{transform:translateY(-6px)}
+.prog-icon{font-size:48px;margin-bottom:12px}
+.prog-title{font-family:'Baloo 2',cursive;font-weight:800;font-size:18px;margin-bottom:6px}
+.prog-age{display:inline-block;padding:4px 12px;border-radius:20px;font-size:12px;font-weight:700;margin-bottom:8px}
+.prog-desc{font-size:13px;color:#888;line-height:1.5}
+.program-card:nth-child(1) .prog-title{color:#FF6B35}
+.program-card:nth-child(1) .prog-age{background:#FFF3CD;color:#FF6B35}
+.program-card:nth-child(2) .prog-title{color:#22C55E}
+.program-card:nth-child(2) .prog-age{background:#D1F2EB;color:#22C55E}
+.program-card:nth-child(3) .prog-title{color:#A855F7}
+.program-card:nth-child(3) .prog-age{background:#E8D5FB;color:#A855F7}
+.program-card:nth-child(4) .prog-title{color:#FF4E8E}
+.program-card:nth-child(4) .prog-age{background:#FADBD8;color:#FF4E8E}
+
+/* GALLERY - Real images with emoji overlay */
+.gallery-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:16px;max-width:1000px;margin:0 auto}
+.gallery-item{border-radius:16px;height:180px;overflow:hidden;position:relative;cursor:pointer;transition:transform 0.2s}
+.gallery-item:hover{transform:scale(1.04)}
+.gallery-item img{width:100%;height:100%;object-fit:cover;display:block}
+.gallery-caption{position:absolute;bottom:0;left:0;right:0;background:linear-gradient(transparent,rgba(0,0,0,0.55));color:#fff;font-size:13px;font-weight:700;padding:20px 12px 10px;text-align:center}
+
+/* ADMISSIONS */
+.admissions-bg{background:linear-gradient(135deg,#A855F7 0%,#4ECDC4 100%)}
+.admissions-bg .section-title{color:#fff}
+.admissions-bg .section-sub{color:rgba(255,255,255,0.85)}
+.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:20px;max-width:900px;margin:0 auto}
+.step{background:rgba(255,255,255,0.2);border-radius:20px;padding:28px 20px;text-align:center;border:2px solid rgba(255,255,255,0.3)}
+.step-num{width:50px;height:50px;background:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'Baloo 2',cursive;font-weight:800;font-size:22px;color:#A855F7;margin:0 auto 14px}
+.step h4{color:#fff;font-weight:700;font-size:16px;margin-bottom:6px}
+.step p{color:rgba(255,255,255,0.85);font-size:13px}
+.admit-btn{display:block;width:fit-content;margin:32px auto 0;background:#FFD93D;color:#A855F7;padding:16px 40px;border-radius:30px;text-decoration:none;font-weight:800;font-size:18px;box-shadow:0 6px 20px rgba(0,0,0,0.2)}
+
+/* TESTIMONIALS */
+.testimonials{background:#fff8f0}
+.testi-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px;max-width:900px;margin:0 auto}
+.testi-card{background:#fff;border-radius:20px;padding:24px;box-shadow:0 4px 16px rgba(0,0,0,0.08)}
+.testi-stars{color:#FFD93D;font-size:18px;margin-bottom:10px}
+.testi-text{font-size:14px;color:#555;line-height:1.6;margin-bottom:16px;font-style:italic}
+.testi-author{display:flex;align-items:center;gap:10px}
+.testi-avatar{width:42px;height:42px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:18px}
+.testi-name{font-weight:700;font-size:14px;color:#333}
+.testi-role{font-size:12px;color:#999}
+
+/* CONTACT */
+.contact-section{background:linear-gradient(135deg,#FF6B35 0%,#FFD93D 100%)}
+.contact-section .section-title{color:#fff}
+.contact-section .section-sub{color:rgba(255,255,255,0.9)}
+.contact-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:20px;max-width:900px;margin:0 auto 32px}
+.contact-card{background:rgba(255,255,255,0.2);border-radius:16px;padding:24px;text-align:center;border:2px solid rgba(255,255,255,0.3)}
+.contact-icon{font-size:36px;margin-bottom:10px}
+.contact-card h4{color:#fff;font-weight:700;margin-bottom:6px}
+.contact-card p{color:rgba(255,255,255,0.95);font-size:14px}
+.contact-card a{color:#fff;text-decoration:none;font-weight:700}
+.contact-card a:hover{text-decoration:underline}
+
+/* FOOTER */
+footer{background:#2D2D2D;color:#ccc;text-align:center;padding:30px 20px}
+.footer-logo{font-family:'Baloo 2',cursive;font-size:24px;font-weight:800;color:#FFD93D;margin-bottom:8px}
+.footer-links{display:flex;gap:20px;justify-content:center;flex-wrap:wrap;margin-bottom:16px}
+.footer-links a{color:#aaa;text-decoration:none;font-size:14px;transition:color 0.2s}
+.footer-links a:hover{color:#FFD93D}
+.footer-copy{font-size:13px;color:#777;margin-bottom:6px}
+.footer-demo{font-size:12px;color:#555}
+.footer-demo a{color:#FFD93D;text-decoration:none}
+
+/* WHATSAPP FLOAT - removed, using email only */
+
+@media(max-width:600px){
+.hero h1{font-size:32px}
+.about-grid{grid-template-columns:1fr}
+.header-top{padding:16px 20px}
+section{padding:40px 20px}
+.stats{padding:30px 20px}
+.about-img{height:220px}
+}
+</style>
+</head>
+<body>
+
+<!-- DEMO BANNER -->
+<div class="demo-banner">
+  🎯 DEMO WEBSITE — <span>Sample Project by </span><a href="https://cloudpixelai.in" target="_blank">CloudPixel AI · cloudpixelai.in</a>
+</div>
+
+<!-- HEADER -->
+<header>
+  <div class="header-top">
+    <div class="logo-area">
+      <div class="logo-circle">🏫</div>
+      <div>
+        <div class="school-name">Demo Play School</div>
+        <div class="school-tagline">🌟 Where Every Child Shines!</div>
+      </div>
+    </div>
+    <nav>
+      <a href="#about">About</a>
+      <a href="#programs">Programs</a>
+      <a href="#gallery">Gallery</a>
+      <a href="#admissions">Admissions</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-bubbles">
+    <div class="bubble"></div><div class="bubble"></div>
+    <div class="bubble"></div><div class="bubble"></div>
+  </div>
+  <h1>🎉 Learning Through Play!</h1>
+  <p>A safe, joyful & nurturing space where little minds grow big dreams</p>
+  <div class="hero-btns">
+    <a href="#admissions" class="btn-primary">🎒 Enroll Now — 2026–27</a>
+    <a href="#programs" class="btn-secondary">📚 Our Programs</a>
+  </div>
+</div>
+
+<!-- STATS -->
+<div class="stats">
+  <div class="stat-card"><div class="stat-num">500+</div><div class="stat-label">Happy Students</div></div>
+  <div class="stat-card"><div class="stat-num">15+</div><div class="stat-label">Years Experience</div></div>
+  <div class="stat-card"><div class="stat-num">25+</div><div class="stat-label">Expert Teachers</div></div>
+  <div class="stat-card"><div class="stat-num">98%</div><div class="stat-label">Parent Satisfaction</div></div>
+</div>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="section-title">💛 About Our School</div>
+  <div class="section-sub">Building strong foundations for a bright future</div>
+  <div class="about-grid">
+    <div class="about-img">
+      <img src="https://images.unsplash.com/photo-1544776193-352d25ca82cd?w=600&q=80" alt="Children learning with colorful toys and letters"/>
+    </div>
+    <div class="about-features">
+      <div class="feature-item">
+        <div class="feature-icon">🛡️</div>
+        <div class="feature-text"><h4>Safe Environment</h4><p>CCTV monitored, child-safe premises 24/7</p></div>
+      </div>
+      <div class="feature-item">
+        <div class="feature-icon">👩‍🏫</div>
+        <div class="feature-text"><h4>Caring Teachers</h4><p>Trained, certified & experienced educators</p></div>
+      </div>
+      <div class="feature-item">
+        <div class="feature-icon">🎨</div>
+        <div class="feature-text"><h4>Creative Learning</h4><p>Arts, music, dance & activity-based curriculum</p></div>
+      </div>
+      <div class="feature-item">
+        <div class="feature-icon">🥗</div>
+        <div class="feature-text"><h4>Nutritious Meals</h4><p>Healthy snacks & lunch provided daily</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROGRAMS -->
+<section id="programs" class="programs-bg">
+  <div class="section-title">📚 Our Programs</div>
+  <div class="section-sub">Age-appropriate programs designed for holistic development</div>
+  <div class="programs-grid">
+    <div class="program-card">
+      <div class="prog-icon">🍼</div>
+      <div class="prog-title">Play Group</div>
+      <div class="prog-age">1.5 – 2.5 Years</div>
+      <div class="prog-desc">First steps into the world of learning through play and exploration</div>
+    </div>
+    <div class="program-card">
+      <div class="prog-icon">🎠</div>
+      <div class="prog-title">Nursery</div>
+      <div class="prog-age">2.5 – 3.5 Years</div>
+      <div class="prog-desc">Language, creativity, and social skills development</div>
+    </div>
+    <div class="program-card">
+      <div class="prog-icon">🎓</div>
+      <div class="prog-title">LKG</div>
+      <div class="prog-age">3.5 – 4.5 Years</div>
+      <div class="prog-desc">Reading, writing, numbers and critical thinking basics</div>
+    </div>
+    <div class="program-card">
+      <div class="prog-icon">⭐</div>
+      <div class="prog-title">UKG</div>
+      <div class="prog-age">4.5 – 5.5 Years</div>
+      <div class="prog-desc">School readiness with advanced concepts and confidence building</div>
+    </div>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section id="gallery">
+  <div class="section-title">📸 Our Activities</div>
+  <div class="section-sub">Colorful moments of joy, learning & friendship</div>
+  <div class="gallery-grid">
+    <div class="gallery-item">
+      <img src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=400&q=80" alt="Children learning alphabets and letters"/>
+      <div class="gallery-caption">📝 Learning Letters</div>
+    </div>
+    <div class="gallery-item">
+      <img src="https://images.unsplash.com/photo-1513475382585-d06e58bcb0e0?w=400&q=80" alt="Colorful art and painting activities"/>
+      <div class="gallery-caption">🎨 Art & Colors</div>
+    </div>
+    <div class="gallery-item">
+      <img src="https://images.unsplash.com/photo-1560969184-10fe8719e047?w=400&q=80" alt="Bright colorful classroom"/>
+      <div class="gallery-caption">🏫 Our Classroom</div>
+    </div>
+    <div class="gallery-item">
+      <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&q=80" alt="Colorful toys and building blocks for kids"/>
+      <div class="gallery-caption">🧸 Play & Learn Toys</div>
+    </div>
+    <div class="gallery-item">
+      <img src="https://images.unsplash.com/photo-1526634332515-d56c5fd16991?w=400&q=80" alt="Children playing outdoor games"/>
+      <div class="gallery-caption">🏃 Outdoor Play</div>
+    </div>
+    <div class="gallery-item">
+      <img src="https://images.unsplash.com/photo-1551966775-a4ddc8df052b?w=400&q=80" alt="Fun group activities for kids"/>
+      <div class="gallery-caption">🌈 Group Activities</div>
+    </div>
+  </div>
+</section>
+
+<!-- ADMISSIONS -->
+<section id="admissions" class="admissions-bg">
+  <div class="section-title">🎒 Admissions Open 2026–27!</div>
+  <div class="section-sub">Simple 4-step enrollment process</div>
+  <div class="steps">
+    <div class="step">
+      <div class="step-num">1</div>
+      <h4>Email Us</h4>
+      <p>Send an enquiry to our email — we reply within 30 minutes</p>
+    </div>
+    <div class="step">
+      <div class="step-num">2</div>
+      <h4>Visit School</h4>
+      <p>Schedule a campus tour and meet our teachers in person</p>
+    </div>
+    <div class="step">
+      <div class="step-num">3</div>
+      <h4>Fill Form</h4>
+      <p>Submit the simple admission form with basic documents</p>
+    </div>
+    <div class="step">
+      <div class="step-num">4</div>
+      <h4>Welcome! 🎉</h4>
+      <p>Your child officially joins the Demo Play School family!</p>
+    </div>
+  </div>
+  <a href="mailto:info@cloudpixelai.in" class="admit-btn">📧 Email Us for Admission</a>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="testimonials">
+  <div class="section-title">💬 What Parents Say</div>
+  <div class="section-sub">Trusted by hundreds of happy families</div>
+  <div class="testi-grid">
+    <div class="testi-card">
+      <div class="testi-stars">★★★★★</div>
+      <div class="testi-text">"My daughter loves going to school every morning! The teachers are so caring and the environment feels like a second home."</div>
+      <div class="testi-author">
+        <div class="testi-avatar" style="background:#FFF3CD">👩</div>
+        <div><div class="testi-name">Priya Sharma</div><div class="testi-role">Parent of Aarav, Age 4</div></div>
+      </div>
+    </div>
+    <div class="testi-card">
+      <div class="testi-stars">★★★★★</div>
+      <div class="testi-text">"Best decision we made! Our son has improved so much in speaking, reading and confidence since joining. Highly recommend!"</div>
+      <div class="testi-author">
+        <div class="testi-avatar" style="background:#D1F2EB">👨</div>
+        <div><div class="testi-name">Ravi Kumar</div><div class="testi-role">Parent of Diya, Age 3</div></div>
+      </div>
+    </div>
+    <div class="testi-card">
+      <div class="testi-stars">★★★★★</div>
+      <div class="testi-text">"The curriculum is outstanding. My child comes home excited every day with new things she learned. Absolutely wonderful school!"</div>
+      <div class="testi-author">
+        <div class="testi-avatar" style="background:#E8D5FB">👩</div>
+        <div><div class="testi-name">Sunita Reddy</div><div class="testi-role">Parent of Rohan, Age 5</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="contact-section">
+  <div class="section-title">📍 Contact Us</div>
+  <div class="section-sub">We'd love to hear from you — reach us anytime!</div>
+  <div class="contact-grid">
+    <div class="contact-card">
+      <div class="contact-icon">✉️</div>
+      <h4>Email</h4>
+      <p><a href="mailto:info@cloudpixelai.in">info@cloudpixelai.in</a></p>
+    </div>
+    <div class="contact-card">
+      <div class="contact-icon">📧</div>
+      <h4>Gmail</h4>
+      <p><a href="mailto:cloudpixelai.in@gmail.com">cloudpixelai.in@gmail.com</a></p>
+    </div>
+    <div class="contact-card">
+      <div class="contact-icon">🌐</div>
+      <h4>Website</h4>
+      <p><a href="https://cloudpixelai.in" target="_blank">cloudpixelai.in</a></p>
+    </div>
+    <div class="contact-card">
+      <div class="contact-icon">📍</div>
+      <h4>Location</h4>
+      <p>South India<br>(Demo Location)</p>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">🌟 Demo Play School</div>
+  <div class="footer-links">
+    <a href="#about">About</a>
+    <a href="#programs">Programs</a>
+    <a href="#gallery">Gallery</a>
+    <a href="#admissions">Admissions</a>
+    <a href="#contact">Contact</a>
+  </div>
+  <div class="footer-copy">© 2026 Demo Play School · Made with ❤️ for little learners</div>
+  <div class="footer-demo">⚠️ This is a DEMO website · Created by <a href="https://cloudpixelai.in" target="_blank">CloudPixel AI</a> · info@cloudpixelai.in</div>
+</footer>
+
+</body>
+</html>
